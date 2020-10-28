@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "typeinfo": "c",
+        "hashmap_base.h": "c",
+        "hashmap.h": "c",
+        "stddef.h": "c"
+    }
+}
