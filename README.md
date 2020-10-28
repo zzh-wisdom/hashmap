@@ -134,3 +134,7 @@ quertz: <https://github.com/HewlettPackard/quartz>
 src code: <https://github.com/Davidleeds/hashmap>
 
 sudo scripts/setupdev.sh load
+
+scripts/runenv.sh ../hashmap/build/test/hashmap_test
+
+改代码后有错误，未命令，-Werror（改两个cmakelists）

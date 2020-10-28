@@ -536,41 +536,41 @@ const struct test tests[] = {
                 .run = test_remove,
                 .pre_load = true
         },
-        {
-                .name = "mixed put/remove performance",
-                .description = "put, remove 1/2, then put them back",
-                .run = test_put_remove
-        },
-        {
-                .name = "iterate performance",
-                .description = "iterate through entries",
-                .run = test_iterate,
-                .pre_load = true
-        },
-        {
-                .name = "iterate remove all",
-                .description = "iterate and remove all entries",
-                .run = test_iterate_remove,
-                .pre_load = true
-        },
-        {
-                .name = "iterate remove odd indices",
-                .description = "iterate and delete alternate entries",
-                .run = test_iterate_remove_odd,
-                .pre_load = true
-        },
-        {
-                .name = "clear performance",
-                .description = "clear entries",
-                .run = test_clear,
-                .pre_load = true
-        },
-        {
-                .name = "reset performance",
-                .description = "reset entries",
-                .run = test_reset,
-                .pre_load = true
-        }
+        // {
+        //         .name = "mixed put/remove performance",
+        //         .description = "put, remove 1/2, then put them back",
+        //         .run = test_put_remove
+        // },
+        // {
+        //         .name = "iterate performance",
+        //         .description = "iterate through entries",
+        //         .run = test_iterate,
+        //         .pre_load = true
+        // },
+        // {
+        //         .name = "iterate remove all",
+        //         .description = "iterate and remove all entries",
+        //         .run = test_iterate_remove,
+        //         .pre_load = true
+        // },
+        // {
+        //         .name = "iterate remove odd indices",
+        //         .description = "iterate and delete alternate entries",
+        //         .run = test_iterate_remove_odd,
+        //         .pre_load = true
+        // },
+        // {
+        //         .name = "clear performance",
+        //         .description = "clear entries",
+        //         .run = test_clear,
+        //         .pre_load = true
+        // },
+        // {
+        //         .name = "reset performance",
+        //         .description = "reset entries",
+        //         .run = test_reset,
+        //         .pre_load = true
+        // }
 };
 
 /*
@@ -598,11 +598,11 @@ int main(int argc, char **argv)
     success &= test_run_all((hashmap_void_t *)&str_map, keys_str_sequential, tests,
             ARRAY_SIZE(tests), "Hashmap w/sequential string keys");
 
-    success &= test_run_all((hashmap_void_t *)&int_map, keys_int_random, tests,
-            ARRAY_SIZE(tests), "Hashmap w/randomized integer keys");
+    // success &= test_run_all((hashmap_void_t *)&int_map, keys_int_random, tests,
+    //         ARRAY_SIZE(tests), "Hashmap w/randomized integer keys");
 
-    success &= test_run_all((hashmap_void_t *)&int_map, keys_int_sequential, tests,
-            ARRAY_SIZE(tests), "Hashmap w/sequential integer keys");
+    // success &= test_run_all((hashmap_void_t *)&int_map, keys_int_sequential, tests,
+    //         ARRAY_SIZE(tests), "Hashmap w/sequential integer keys");
 
     printf("\nTests finished\n");
 
