@@ -7,7 +7,7 @@
 
 #pragma once
 
-#define  ENABLE_NVM
+// #define  ENABLE_NVM
 
 struct hashmap_entry;
 
