@@ -53,11 +53,11 @@ void **test_keys_alloc(size_t num)
 {
     void **keys;
 
-// #ifdef ENABLE_NVM
-//     keys = (void **)pmalloc(num * sizeof(void *));
-// #else
+#ifdef ENABLE_NVM
+    keys = (void **)pmalloc(num * sizeof(void *));
+#else
     keys = (void **)calloc(num, sizeof(void *));
-// # endif
+# endif
     if (!keys) {
         printf("malloc failed\n");
         exit(1);
@@ -71,11 +71,11 @@ void *test_key_alloc_random_str(void)
     unsigned num;
     char *key;
 
-// #ifdef ENABLE_NVM
-//     key = (char *)pmalloc(TEST_KEY_STR_LEN + 1);
-// #else
+#ifdef ENABLE_NVM
+    key = (char *)pmalloc(TEST_KEY_STR_LEN + 1);
+#else
    key = (char *)malloc(TEST_KEY_STR_LEN + 1);
-// # endif
+# endif
     if (!key) {
         printf("malloc failed\n");
         exit(1);
@@ -92,11 +92,11 @@ void *test_key_alloc_random_str(void)
 void *test_key_alloc_random_int(void)
 {
     uint64_t *key;
-// #ifdef ENABLE_NVM
-//     key = (uint64_t *)pmalloc(sizeof(*key));
-// #else
+#ifdef ENABLE_NVM
+    key = (uint64_t *)pmalloc(sizeof(*key));
+#else
     key = (uint64_t *)malloc(sizeof(*key));
-// #endif
+#endif
     if (!key) {
         printf("malloc failed\n");
         exit(1);
@@ -112,11 +112,11 @@ void *test_key_alloc_random_int(void)
 void *test_key_alloc_sequential_str(size_t index)
 {
     char *key;
-// #ifdef ENABLE_NVM
-//      key = (char *)pmalloc(TEST_KEY_STR_LEN + 1);
-// #else
+#ifdef ENABLE_NVM
+     key = (char *)pmalloc(TEST_KEY_STR_LEN + 1);
+#else
     key = (char *)malloc(TEST_KEY_STR_LEN + 1);
-// #endif
+#endif
     if (!key) {
         printf("malloc failed\n");
         exit(1);
@@ -128,11 +128,11 @@ void *test_key_alloc_sequential_str(size_t index)
 void *test_key_alloc_sequential_int(size_t index)
 {
     uint64_t *key;
-// #ifdef ENABLE_NVM
-//      key = (uint64_t *)pmalloc(sizeof(*key));
-// #else
+#ifdef ENABLE_NVM
+     key = (uint64_t *)pmalloc(sizeof(*key));
+#else
     key = (uint64_t *)malloc(sizeof(*key));
-// #endif
+#endif
     if (!key) {
         printf("malloc failed\n");
         exit(1);
@@ -190,7 +190,6 @@ void test_print_stats(hashmap_void_t *map, const char *label)
     printf("    Load factor:         %.4f\n", hashmap_load_factor(map));
     printf("    Collisions mean:     %.4f\n", hashmap_collisions_mean(map));
     printf("    Collisions variance: %.4f\n", hashmap_collisions_variance(map));
-
 }
 
 bool test_run(hashmap_void_t *map, void **keys, const struct test *t)
