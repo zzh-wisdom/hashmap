@@ -178,11 +178,11 @@ static int hashmap_rehash(struct hashmap_base *hb, size_t table_size)
     assert((table_size & (table_size - 1)) == 0);
     assert(table_size >= hb->size);
 
-// #ifdef ENABLE_NVM
-//     new_table = (struct hashmap_entry *)pmalloc(table_size * sizeof(struct hashmap_entry));
-// #else
+#ifdef ENABLE_NVM
+    new_table = (struct hashmap_entry *)pmalloc(table_size * sizeof(struct hashmap_entry));
+#else
     new_table = (struct hashmap_entry *)calloc(table_size, sizeof(struct hashmap_entry));
-// #endif
+#endif
     if (!new_table) {
         return -ENOMEM;
     }
