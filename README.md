@@ -133,8 +133,8 @@ CMakeLists.txt
 quertz: <https://github.com/HewlettPackard/quartz>
 src code: <https://github.com/Davidleeds/hashmap>
 
+cd ../quartz
 sudo scripts/setupdev.sh load
-
 scripts/runenv.sh ../hashmap/build/test/hashmap_test
 
 改代码后有错误，未命令，-Werror（改两个cmakelists）
@@ -152,6 +152,15 @@ cd libpfm-4.11.0
 make
 ./examples/showevtinfo -E
 
-
 git clone https://github.com/HewlettPackard/quartz.git
 cd quartz
+
+git clone https://github.com/DavidLeeds/hashmap.git
+cd hashmap
+
+mkdir build && cd build
+cmake ..
+make
+
+cd hashmap
+./build/test/hashmap_test

@@ -208,11 +208,11 @@ static int hashmap_rehash(struct hashmap_base *hb, size_t table_size)
         /* Shallow copy */
         *new_entry = *entry;
     }
-// #ifdef ENABLE_NVM
-//     pfree(old_table);
-// #else
+#ifdef ENABLE_NVM
+    pfree(old_table);
+#else
     free(old_table);
-// #endif
+#endif
     return 0;
 }
 
